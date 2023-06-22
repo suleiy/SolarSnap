@@ -8,5 +8,19 @@
 </head>
 <body>
     <h1>Solar Snap</h1>
+    
+    <p>Upload a picture of your home to see what it will look like when you add solar panels!</p>
+    
+    <h3>Upload an image</h3>
+
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+
+        <br/>
+
+        <input type="submit" value="Upload">
+    </form>
+
+    <h4 style="color:red">{{ msg }}</h4>
 </body>
 </html>
