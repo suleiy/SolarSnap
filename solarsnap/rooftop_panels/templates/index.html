@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,5 +10,10 @@
 </head>
 <body>
     <h1>Solar Snap</h1>
+    <div id="app"></div>
+
+    <script type="text/javascript" src="{% static 'src/vue/dist/js/chunk-vendors.js' %}"></script>
+    <script type="text/javascript" src="{% static 'src/vue/dist/js/app.js' %}"></script>
+    <link href="{% static 'src/vue/dist/css/app.css' %}" rel=stylesheet>
 </body>
 </html>
