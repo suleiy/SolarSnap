@@ -9,6 +9,7 @@
     <title>SolarSnap</title>
 </head>
 <body>
+    
     <h1>Solar Snap</h1>
     
     <p>Upload a picture of your home to see what it will look like when you add solar panels!</p>
@@ -16,6 +17,7 @@
     <h3>Upload an image</h3>
 
     <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
         <input type="file" name="file">
 
         <br/>
@@ -24,7 +26,8 @@
     </form>
 
     <h4 style="color:red">{{ msg }}</h4>
-    <div id="app"></div>
+
+<div id="app"></div>
 
     <script type="text/javascript" src="{% static 'src/vue/dist/js/chunk-vendors.js' %}"></script>
     <script type="text/javascript" src="{% static 'src/vue/dist/js/app.js' %}"></script>
