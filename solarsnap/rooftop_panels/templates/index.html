@@ -19,7 +19,8 @@
     <form method = "post" enctype="multipart/form-data">
       {% csrf_token %}
       {{ form.as_p }}
-      <button type="submit">Upload</button>
+      <p id="confirm"></p>
+      <button type="submit" onclick="getElementById('confirm').innerHTML='<b>Your image is being processed...'">Upload</button>
     </form>
 
 <div id="app"></div>
