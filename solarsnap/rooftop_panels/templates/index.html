@@ -9,23 +9,18 @@
     <title>SolarSnap</title>
 </head>
 <body>
-    
+
     <h1>Solar Snap</h1>
-    
+
     <p>Upload a picture of your home to see what it will look like when you add solar panels!</p>
-    
+
     <h3>Upload an image</h3>
 
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <input type="file" name="file">
-
-        <br/>
-
-        <input type="submit" value="Upload">
+    <form method = "post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Upload</button>
     </form>
-
-    <h4 style="color:red">{{ msg }}</h4>
 
 <div id="app"></div>
 

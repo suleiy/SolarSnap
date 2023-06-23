@@ -1,6 +1,5 @@
 from django.apps import AppConfig
-
-from flask import Flask, render_template, request
+""" from flask import Flask, render_template, request
 from PIL import Image
 import numpy as np
 
@@ -21,8 +20,8 @@ def home():
     return render_template('index.html', msg='Your image has been uploaded')
 
 if __name__ == '__main__':
-    app.run()
-    
+    app.run() """
+
 class RooftopPanelsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'rooftop_panels'
