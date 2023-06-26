@@ -1,19 +1,24 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <BannerTemplate>
+       <p>
+        Upload a picture of your home to see what it will look like when you add
+        solar panels!
+      </p>
+    </BannerTemplate>
+    <h3>Upload an image</h3>
+      
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import BannerTemplate from "./components/Banner";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    BannerTemplate,
+  },
+};
 </script>
 
 <style>

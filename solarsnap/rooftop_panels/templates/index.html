@@ -2,32 +2,35 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>SolarSnap</title>
-</head>
-<body>
-
-    <h1>Solar Snap</h1>
-
-    <p>Upload a picture of your home to see what it will look like when you add solar panels!</p>
-
-    <h3>Upload an image</h3>
-
-    <form method = "post" enctype="multipart/form-data">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <p id="confirm"></p>
-      <button type="submit" onclick="getElementById('confirm').innerHTML='<b>Your image is being processed...'">Upload</button>
-    </form>
-
-<div id="app"></div>
-
-    <script type="text/javascript" src="{% static 'src/vue/dist/js/chunk-vendors.js' %}"></script>
-    <script type="text/javascript" src="{% static 'src/vue/dist/js/app.js' %}"></script>
-    <link href="{% static 'src/vue/dist/css/app.css' %}" rel=stylesheet>
-
-</body>
+  </head>
+  <body>
+    <div style="display: flex; align-items: center; flex-direction: column">
+      <div id="app"></div>
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %} {{ form.as_p }}
+        <p id="confirm"></p>
+        <button
+          type="submit"
+          onclick="getElementById('confirm').innerHTML='<b>Your image is being processed...'"
+        >
+          Upload
+        </button>
+      </form>
+    </div>
+    <script
+      type="text/javascript"
+      src="{% static 'src/vue/dist/js/chunk-vendors.js' %}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{% static 'src/vue/dist/js/app.js' %}"
+    ></script>
+    <link href="{% static 'src/vue/dist/css/app.css' %}" rel="stylesheet" />
+  </body>
 </html>
