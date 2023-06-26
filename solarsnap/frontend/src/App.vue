@@ -1,11 +1,12 @@
 <template>
   <div id="app">
     <BannerTemplate>
-       <p>
+       
+    </BannerTemplate>
+    <p>
         Upload a picture of your home to see what it will look like when you add
         solar panels!
       </p>
-    </BannerTemplate>
     <h3>Upload an image</h3>
       
   </div>

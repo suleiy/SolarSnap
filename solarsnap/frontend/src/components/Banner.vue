@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <h1>Solar Snap <SunIcon/></h1>
-      <slot />
   </div>
 </template>
 
