@@ -19,6 +19,7 @@
   <body>
     <div class="container center">
       <div id="app" class="row"></div>
+      <div></div>
       <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
 
@@ -27,17 +28,34 @@
           <div class="row form-group">{{ form.uploaded_image }}</div>
           <div class="row form-group">
             <p id="confirm"></p>
-            <button
+            <div class="btn-group">
+              <input
+                type="submit"
+                class="btn btn-danger"
+                value="aerial"
+                name="submit"
+                onclick="getElementById('confirm').innerHTML='<b>Your image is being processed...'"
+              />
+              <input
+                type="submit"
+                class="btn btn-success"
+                value="ground"
+                name="submit"
+                onclick="getElementById('confirm').innerHTML='<b>Your image is being processed...'"
+              />
+            </div>
+            <!-- <button
               type="submit"
               class="btn btn-warning"
               onclick="getElementById('confirm').innerHTML='<b>Your image is being processed...'"
             >
               Upload
-            </button>
+            </button> -->
           </div>
         </div>
       </form>
     </div>
+    <script src="../static/app.js"></script>
     <script
       type="text/javascript"
       src="{% static 'src/vue/dist/js/chunk-vendors.js' %}"

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    This is aerial view
+    <form method="post" enctype="multipart/form-data">
+      <div class="btn-group">
+        <input
+          type="submit"
+          class="btn btn-danger"
+          value="blue"
+          name="submit"
+        />
+        <input
+          type="submit"
+          class="btn btn-success"
+          value="black"
+          name="submit"
+          onclick="getElementById('confirm').innerHTML='<b>Your image is being processed...'"
+        />
+      </div>
+    </form>
+  </body>
+</html>

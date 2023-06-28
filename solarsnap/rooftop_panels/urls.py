@@ -8,7 +8,8 @@ from .views import *
 
 urlpatterns = [
     path('', index, name = 'home'),
-    path('success', success, name='success'),
+    path('successAerial', successAerial, name='successAerial'),
+    path('successGround', successGround, name='successGround'),
 ]
 
 if settings.DEBUG:
