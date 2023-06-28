@@ -240,16 +240,13 @@ def panel_rotation(panels_series, solar_roof_area,color,new_image,high_reso_orig
         # Number of Solar Panels in series (3/4/5)
         panels_series = panels_series - 1
     ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
-    path = os.path.join(ROOT_DIR,"static","black.png")
-    print("ThisONE"+path)
+    
     if color=="black":
         panelImg=os.path.join(ROOT_DIR,"static","black.png")
-    if color=="blue":
-        panelImg=os.path.join(ROOT_DIR,"static","blue.png")
     if color=="brown":
+        panelImg=os.path.join(ROOT_DIR,"static","blue.png")
+    if color=="blue":
         panelImg=os.path.join(ROOT_DIR,"static","brown.png")
-    if color=="darkBlue":
-        panelImg=os.path.join(ROOT_DIR,"static","darkBlue.png")
     if color=="silver":
         panelImg=os.path.join(ROOT_DIR,"static","silver.png")
     # print(squares)
@@ -276,7 +273,9 @@ def panel_rotation(panels_series, solar_roof_area,color,new_image,high_reso_orig
         high_reso_orig_withShape = high_reso_orig_withShape + cv2.bitwise_and(insert_image_warped, mask)
 
     result_3=Image.fromarray(high_reso_orig_withShape)
-    result_3.save('output'+'.jpg')
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    path=os.path.join(BASE_DIR,"static/src/vue/dist","output.jpg")
+    result_3.save(path, 'JPEG')
     # plt.title("with pictures")
     # plt.imshow(high_reso_orig_withShape)
     # plt.show()
@@ -329,5 +328,6 @@ if __name__ == "__main__":
     area_roof = n_white_pix*0.075
     print('area of building roof : ',n_white_pix*0.075,'sqm')
     print('new image shape',new_image.shape)
+    
     # Rotation of Solar Panels
     panel_rotation(pl, solar_roof, color)

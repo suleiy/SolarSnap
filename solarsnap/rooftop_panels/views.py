@@ -6,6 +6,7 @@ import time
 import replicate
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 def index(request):
     if request.method == 'POST':
         form = ImageForm(request.POST, request.FILES)
@@ -35,10 +36,9 @@ def successAerial(request):
     latest_image = Image.objects.order_by('id').last()
     latest_image_url = latest_image.uploaded_image.url
 
+    color = "silver"
     if request.method == 'POST':
         color=getColor(request.POST['submit'])
-        
-    color = "silver"
     pl, pw, l, w, solar_angle = 4, 1, 8, 5, 30
     image = cv2.imread('../solarsnap/solarsnap'+ latest_image_url) #input image path 
     img = cv2.pyrDown(image)
@@ -82,6 +82,11 @@ def successAerial(request):
     area_roof = n_white_pix*0.075
     print('area of building roof : ',n_white_pix*0.075,'sqm')
     print('new image shape',new_image.shape)
+
+    output = os.path.join(BASE_DIR,'output.jpg')
+    print('BASE_DIR'+output)
     # Rotation of Solar Panels
     panel_rotation(pl, solar_roof, color, new_image, high_reso_orig, l,w,pw,pl,solar_angle)
-    return render(request, 'aerial.html')
+    
+    
+    return render(request, 'aerial.html', {'latest_image_url': output, 'color':color})

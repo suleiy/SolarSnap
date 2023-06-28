@@ -3,11 +3,7 @@
     <BannerTemplate>
        
     </BannerTemplate>
-    <p>
-        Upload a picture of your home to see what it will look like when you add
-        solar panels!
-      </p>
-    <h3>Upload an image</h3>
+   
       
   </div>
 </template>

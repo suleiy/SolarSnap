@@ -1,29 +1,94 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Aerial</title>
   </head>
   <body>
-    This is aerial view
-    <form method="post" enctype="multipart/form-data">
-      <div class="btn-group">
-        <input
-          type="submit"
-          class="btn btn-danger"
-          value="blue"
-          name="submit"
-        />
-        <input
-          type="submit"
-          class="btn btn-success"
-          value="black"
-          name="submit"
-          onclick="getElementById('confirm').innerHTML='<b>Your image is being processed...'"
-        />
+    <div class="container center" style="width: 70vw">
+      <div id="app" class="row"></div>
+      <div class="center-s" style="margin: 0 30px 0 30px; text-align: center">
+        <p>The selected solar panel color is {{ color }}</p>
+        <h3>Select panel color</h3>
       </div>
-    </form>
+
+      <p id="confirm"></p>
+
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="btn-group" style="margin: 10px">
+          <input
+            type="submit"
+            class="btn btn-danger color-buttons"
+            value="blue"
+            name="submit"
+            style="background-color: rgb(76, 189, 255)"
+            onclick="clickThis()"
+          />
+          <input
+            type="submit"
+            class="btn btn-danger color-buttons"
+            value="brown"
+            name="submit"
+            style="background-color: brown"
+            onclick="clickThis()"
+          />
+          <input
+            type="submit"
+            class="btn btn-danger color-buttons"
+            value="silver"
+            name="submit"
+            style="background-color: rgb(180, 180, 180)"
+            onclick="clickThis()"
+          />
+          <input
+            type="submit"
+            class="btn btn-success color-buttons"
+            value="black"
+            name="submit"
+            style="background-color: rgb(0, 0, 0)"
+            onclick="clickThis()"
+          />
+        </div>
+      </form>
+      <div style="margin: 15px">
+        <img src="{% static 'src/vue/dist/output.jpg' %}" />
+      </div>
+    </div>
+    <script
+      type="text/javascript"
+      src="{% static 'src/vue/dist/js/chunk-vendors.js' %}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{% static 'src/vue/dist/js/app.js' %}"
+    ></script>
+    <link href="{% static 'src/vue/dist/css/app.css' %}" rel="stylesheet" />
+    <script>
+      function clickThis() {
+        const theTag = document.getElementById('confirm');
+        theTag.innerHTML = '<b>Your image is being processed...</b>';
+      }
+    </script>
+    <script>
+      function clickThis() {
+        const theTag = document.getElementById('confirm');
+        theTag.innerHTML = '<b>Your image is being processed...</b>';
+      }
+    </script>
+    <style>
+      .color-buttons {
+        border: none;
+        border-radius: 10px;
+        padding: 10px;
+        font-size: 15px;
+        color: aliceblue;
+        cursor: pointer;
+      }
+    </style>
   </body>
 </html>
